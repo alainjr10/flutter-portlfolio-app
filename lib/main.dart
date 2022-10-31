@@ -1,5 +1,8 @@
+import 'package:dyce_portfolio/screens/homescreen.dart';
 import 'package:dyce_portfolio/utils/constants.dart';
 import 'package:flutter/material.dart';
+
+import 'utils/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +23,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: kPrimaryColorShades,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: customRoutes,
+      initialRoute: HomeScreen.homeScreenId,
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }

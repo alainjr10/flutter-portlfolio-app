@@ -1,10 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const kPrimaryColor = Color(0xFF110120);
 const kOnPrimaryColor = Color(0xFFE5E5E5);
 
+TextStyle kH3TextStyle = GoogleFonts.roboto(
+  color: Colors.white,
+  fontSize: 28.0,
+  fontWeight: FontWeight.w600,
+  letterSpacing: 2.0,
+);
+TextStyle kH4TextStyle = GoogleFonts.roboto(
+  color: Colors.white,
+  fontSize: 18.0,
+  fontWeight: FontWeight.w400,
+  letterSpacing: 2.0,
+  wordSpacing: 5.0,
+);
+TextStyle kH5TextStyle = GoogleFonts.roboto(
+  color: Colors.white70,
+  fontSize: 15.0,
+  fontWeight: FontWeight.w300,
+  letterSpacing: 2.0,
+  wordSpacing: 5.0,
+);
+ButtonStyle kHeadingTextButtonStyle = TextButton.styleFrom(
+  foregroundColor: Colors.white,
+  textStyle: GoogleFonts.roboto(
+    color: Colors.white,
+    fontSize: 18.0,
+    letterSpacing: 2.5,
+  ),
+);
 
- const MaterialColor kPrimaryColorShades = MaterialColor(
+const MaterialColor kPrimaryColorShades = MaterialColor(
   0xFF110120,
   <int, Color>{
     50: Color(0xFF110120),
