@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const kPrimaryColor = Color(0xFF110120);
+// const kPrimaryColor = Color(0xFF110120);
+const kPrimaryColor = Color(0xFF202121);
 const kOnPrimaryColor = Color(0xFFE5E5E5);
 
 TextStyle kH3TextStyle = GoogleFonts.roboto(
