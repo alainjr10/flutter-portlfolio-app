@@ -224,201 +224,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Wrap(
                       spacing: 50.0,
                       runSpacing: 20.0,
-                      children: [
-                        Card(
-                          color: Colors.transparent,
-                          elevation: 6.0,
-                          child: Column(
-                            children: [
-                              const FaIcon(
-                                FontAwesomeIcons.code,
-                                color: Colors.white,
-                                size: 50.0,
-                              ),
-                              const SizedBox(
-                                height: 10.0,
-                              ),
-                              Text(
-                                "Flutter",
-                                style: GoogleFonts.roboto(
-                                  textStyle: textTheme.headline5?.copyWith(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Card(
-                          color: Colors.transparent,
-                          child: Column(
-                            children: [
-                              const FaIcon(
-                                FontAwesomeIcons.code,
-                                color: Colors.white,
-                                size: 50.0,
-                              ),
-                              const SizedBox(
-                                height: 10.0,
-                              ),
-                              Text(
-                                "Flutter",
-                                style: GoogleFonts.roboto(
-                                  textStyle: textTheme.headline5?.copyWith(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Card(
-                          color: Colors.transparent,
-                          child: Column(
-                            children: [
-                              const FaIcon(
-                                FontAwesomeIcons.code,
-                                color: Colors.white,
-                                size: 50.0,
-                              ),
-                              const SizedBox(
-                                height: 10.0,
-                              ),
-                              Text(
-                                "Flutter",
-                                style: GoogleFonts.roboto(
-                                  textStyle: textTheme.headline5?.copyWith(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Card(
-                          color: Colors.transparent,
-                          child: Column(
-                            children: [
-                              const FaIcon(
-                                FontAwesomeIcons.code,
-                                color: Colors.white,
-                                size: 50.0,
-                              ),
-                              const SizedBox(
-                                height: 10.0,
-                              ),
-                              Text(
-                                "Flutter",
-                                style: GoogleFonts.roboto(
-                                  textStyle: textTheme.headline5?.copyWith(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Card(
-                          color: Colors.transparent,
-                          child: Column(
-                            children: [
-                              const FaIcon(
-                                FontAwesomeIcons.code,
-                                color: Colors.white,
-                                size: 50.0,
-                              ),
-                              const SizedBox(
-                                height: 10.0,
-                              ),
-                              Text(
-                                "Flutter",
-                                style: GoogleFonts.roboto(
-                                  textStyle: textTheme.headline5?.copyWith(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Card(
-                          color: Colors.transparent,
-                          child: Column(
-                            children: [
-                              const FaIcon(
-                                FontAwesomeIcons.code,
-                                color: Colors.white,
-                                size: 50.0,
-                              ),
-                              const SizedBox(
-                                height: 10.0,
-                              ),
-                              Text(
-                                "Flutter",
-                                style: GoogleFonts.roboto(
-                                  textStyle: textTheme.headline5?.copyWith(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Card(
-                          color: Colors.transparent,
-                          child: Column(
-                            children: [
-                              const FaIcon(
-                                FontAwesomeIcons.code,
-                                color: Colors.white,
-                                size: 50.0,
-                              ),
-                              const SizedBox(
-                                height: 10.0,
-                              ),
-                              Text(
-                                "Flutter",
-                                style: GoogleFonts.roboto(
-                                  textStyle: textTheme.headline5?.copyWith(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Card(
-                          color: Colors.transparent,
-                          child: Column(
-                            children: [
-                              const FaIcon(
-                                FontAwesomeIcons.code,
-                                color: Colors.white,
-                                size: 50.0,
-                              ),
-                              const SizedBox(
-                                height: 10.0,
-                              ),
-                              Text(
-                                "Flutter",
-                                style: GoogleFonts.roboto(
-                                  textStyle: textTheme.headline5?.copyWith(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                      children: skills.map((e) {
+                        return SkillCard(
+                            textTheme: textTheme, name: e.name, logo: e.logo);
+                      }).toList(),
                     ),
                   ),
                 ],
@@ -564,90 +373,120 @@ class _HomeScreenState extends State<HomeScreen> {
   List<SkillsModel> skills = [
     SkillsModel(
       name: "Flutter",
-      logo: "assets/images/flutter.png",
+      logo: "assets/icons/icons8-flutter-100.png",
     ),
     SkillsModel(
       name: "Dart",
-      logo: "assets/images/dart.png",
+      logo: "assets/icons/icons8-dart-100.png",
     ),
     SkillsModel(
       name: "Firebase",
-      logo: "assets/images/firebase.png",
+      logo: "assets/icons/icons8-firebase-100.png",
     ),
     SkillsModel(
       name: "HTML",
-      logo: "assets/images/html.png",
+      logo: "assets/icons/icons8-html-5-100.png",
     ),
     SkillsModel(
       name: "CSS",
-      logo: "assets/images/css.png",
-    ),
-    SkillsModel(
-      name: "Bootstrap",
-      logo: "assets/images/bootstrap.png",
+      logo: "assets/icons/icons8-css3-100.png",
     ),
     SkillsModel(
       name: "JavaScript",
-      logo: "assets/images/javascript.png",
+      logo: "assets/icons/icons8-javascript-100.png",
     ),
     SkillsModel(
       name: "C++",
-      logo: "assets/images/cpp.png",
-    ),
-    SkillsModel(
-      name: "Java",
-      logo: "assets/images/java.png",
-    ),
-    SkillsModel(
-      name: "Python",
-      logo: "assets/images/python.png",
+      logo: "assets/icons/icons8-c-plus-plus-100.png",
     ),
     SkillsModel(
       name: "C",
-      logo: "assets/images/c.png",
+      logo: "assets/icons/icons8-c-programming-96.png",
     ),
     SkillsModel(
       name: "C#",
-      logo: "assets/images/csharp.png",
+      logo: "assets/icons/icons8-c-sharp-logo2-100.png",
     ),
     SkillsModel(
       name: "PHP",
-      logo: "assets/images/php.png",
+      logo: "assets/icons/icons8-php-logo-100.png",
     ),
     SkillsModel(
       name: "Laravel",
-      logo: "assets/images/laravel.png",
+      logo:
+          "assets/icons/icons8-laravel-is-a-free,-open-source-php-web-framework.-100.png",
     ),
     SkillsModel(
       name: "MySQL",
-      logo: "assets/images/mysql.png",
-    ),
-    SkillsModel(
-      name: "MongoDB",
-      logo: "assets/images/mongodb.png",
+      logo: "assets/icons/icons8-mysql-100.png",
     ),
     SkillsModel(
       name: "Git",
-      logo: "assets/images/git.png",
+      logo: "assets/icons/icons8-git-100.png",
     ),
     SkillsModel(
       name: "GitHub",
-      logo: "assets/images/github.png",
+      logo: "assets/icons/icons8-github3-100.png",
     ),
     SkillsModel(
-      name: "Linux",
-      logo: "assets/images/linux.png",
+      name: "VS Code",
+      logo: "assets/icons/icons8-visual-studio-code-2019-100.png",
     ),
     SkillsModel(
-      name: "Windows",
-      logo: "assets/images/windows.png",
+      name: "Android Studio",
+      logo: "assets/icons/icons8-android-studio-100.png",
     ),
     SkillsModel(
-      name: "MacOS",
-      logo: "assets/images/macos.png",
+      name: "Figma",
+      logo: "assets/icons/icons8-figma-100.png",
+    ),
+    SkillsModel(
+      name: "Wordpress",
+      logo: "assets/icons/icons8-wordpress-100.png",
     ),
   ];
-  
+}
+
+class SkillCard extends StatelessWidget {
+  const SkillCard({
+    Key? key,
+    required this.textTheme,
+    required this.name,
+    required this.logo,
+  }) : super(key: key);
+
+  final TextTheme textTheme;
+  final String name;
+  final String logo;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.transparent,
+      elevation: 6.0,
+      child: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            width: 75.0,
+            height: 75.0,
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage(logo), fit: BoxFit.fill),
+            ),
+          ),
+          const SizedBox(
+            height: 10.0,
+          ),
+          Text(
+            name,
+            style: GoogleFonts.roboto(
+              textStyle: kH4TextStyle.copyWith(fontSize: 14.0),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class AboutMeCard extends StatelessWidget {
