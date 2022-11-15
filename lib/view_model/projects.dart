@@ -37,15 +37,15 @@ List<ProjectSpecs> projects = [
     displayImageUrl: "assets/images/black_student2.jpg",
     onTapped: () {},
     projectImagesUrl: [
-      '1.jpg',
-      '2.jpg',
-      '3.jpg',
-      '4.jpg',
-      '5.jpg',
-      '6.jpg',
-      '7.jpg',
-      '8.jpg',
-      '9.jpg'
+      'assets/projects_images/one_market_customer/1.jpg',
+      'assets/projects_images/one_market_customer/2.jpg',
+      'assets/projects_images/one_market_customer/3.jpg',
+      'assets/projects_images/one_market_customer/4.jpg',
+      'assets/projects_images/one_market_customer/5.jpg',
+      'assets/projects_images/one_market_customer/6.jpg',
+      'assets/projects_images/one_market_customer/7.jpg',
+      'assets/projects_images/one_market_customer/8.jpg',
+      'assets/projects_images/one_market_customer/9.jpg'
     ],
   ),
   ProjectSpecs(

@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dyce_portfolio/models/project_specs.dart';
 import 'package:flutter/material.dart';
 
@@ -43,9 +44,31 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
             // color: Color.fromARGB(255, 9, 1, 17),
             color: Color(0xFF060706),
           ),
-          height: size.height * 0.8,
+          // height: size.height * 0.8,
           child: Column(
             children: [
+              CarouselSlider(
+                options: CarouselOptions(height: 400.0),
+                items: widget.project.projectImagesUrl.map((i) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        margin: EdgeInsets.symmetric(horizontal: 5.0),
+                        decoration: BoxDecoration(
+                            color: Colors.amber,
+                            image: DecorationImage(
+                                image: Image.asset("$i").image,
+                                fit: BoxFit.cover)),
+                        child: Text(
+                          'text $i',
+                          style: TextStyle(fontSize: 16.0),
+                        ),
+                      );
+                    },
+                  );
+                }).toList(),
+              ),
               Container(
                 height: 300.0,
                 margin: const EdgeInsets.only(

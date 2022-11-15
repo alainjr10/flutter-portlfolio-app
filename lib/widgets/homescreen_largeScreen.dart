@@ -247,7 +247,7 @@ class HomeScreenLargeScreen extends StatelessWidget {
                         crossAxisCount: size.width < 815 ? 2 : 3,
                         crossAxisSpacing: 25.0,
                         mainAxisSpacing: 20.0,
-                        childAspectRatio: size.width < 1015 ? 3 / 4 : 4 / 3.5,
+                        childAspectRatio: size.width < 1015 ? 3 / 4 : 4 / 4,
                       ),
                       primary: true,
                       shrinkWrap: true,
