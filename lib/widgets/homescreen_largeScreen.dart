@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../models/project_specs.dart';
 import '../models/skills_model.dart';
 import '../screens/homescreen.dart';
+import '../screens/project_details.dart';
 import '../utils/constants.dart';
 import 'single_project_card.dart';
 import 'small_projects_card.dart';
@@ -170,7 +171,7 @@ class HomeScreenLargeScreen extends StatelessWidget {
                       const SizedBox(
                         height: 40.0,
                       ),
-                      SocialIcons(),
+                      const SocialIcons(),
                     ],
                   ),
                 ),
@@ -223,7 +224,13 @@ class HomeScreenLargeScreen extends StatelessWidget {
                         projectDescription: projects[index].projectDescription,
                         techStackUsed: projects[index].techStackUsed,
                         displayImageUrl: projects[index].displayImageUrl,
-                        onTapped: () {},
+                        onTapped: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return ProjectDetailsScreen(
+                                projectName: projects[index].projectTitle);
+                          }));
+                        },
                       );
                     },
                   ),
