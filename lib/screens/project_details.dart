@@ -1,11 +1,12 @@
+import 'package:dyce_portfolio/models/project_specs.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/constants.dart';
 
 class ProjectDetailsScreen extends StatefulWidget {
   static const projectDetailsScreenId = "/project_details";
-  const ProjectDetailsScreen({super.key, required this.projectName});
-  final String projectName;
+  const ProjectDetailsScreen({super.key, required this.project});
+  final ProjectSpecs project;
 
   @override
   State<ProjectDetailsScreen> createState() => _ProjectDetailsScreenState();
@@ -18,7 +19,7 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          widget.projectName,
+          widget.project.projectTitle,
           style: kH3TextStyle.copyWith(fontSize: 30.0),
         ),
         backgroundColor: const Color(0xFF060706),
@@ -44,7 +45,22 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
           ),
           height: size.height * 0.8,
           child: Column(
-            children: [],
+            children: [
+              Container(
+                height: 300.0,
+                margin: const EdgeInsets.only(
+                    top: 55.0, bottom: 55.0, right: 70.0, left: 40.0),
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(30.0),
+                  ),
+                  image: DecorationImage(
+                    image: AssetImage(widget.project.displayImageUrl),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

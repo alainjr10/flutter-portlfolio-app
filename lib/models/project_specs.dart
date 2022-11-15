@@ -4,6 +4,8 @@ class ProjectSpecs {
   final List<String> techStackUsed;
   final String displayImageUrl;
   final Function() onTapped;
+  List<String> projectImagesUrl;
+  String projectStatus;
 
   ProjectSpecs({
     required this.projectTitle,
@@ -11,5 +13,7 @@ class ProjectSpecs {
     required this.techStackUsed,
     required this.displayImageUrl,
     required this.onTapped,
+    this.projectImagesUrl = const [],
+    this.projectStatus = "inProgress",
   });
 }

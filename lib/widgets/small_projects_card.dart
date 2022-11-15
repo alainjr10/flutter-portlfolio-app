@@ -50,7 +50,7 @@ class _SmallerProjectsCardState extends State<SmallerProjectsCard> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(20.0),
-      height: 200.0,
+      height: 230.0,
       decoration: const BoxDecoration(
         color: Color(0xFF060706),
         borderRadius: BorderRadius.all(

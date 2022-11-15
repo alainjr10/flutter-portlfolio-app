@@ -228,7 +228,7 @@ class HomeScreenLargeScreen extends StatelessWidget {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) {
                             return ProjectDetailsScreen(
-                                projectName: projects[index].projectTitle);
+                                project: projects[index]);
                           }));
                         },
                       );
