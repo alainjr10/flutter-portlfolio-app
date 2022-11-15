@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dyce_portfolio/models/project_specs.dart';
 import 'package:flutter/material.dart';
@@ -48,21 +50,29 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
           child: Column(
             children: [
               CarouselSlider(
-                options: CarouselOptions(height: 400.0),
+                options: CarouselOptions(height: 550.0),
                 items: widget.project.projectImagesUrl.map((i) {
                   return Builder(
                     builder: (BuildContext context) {
                       return Container(
                         width: MediaQuery.of(context).size.width,
-                        margin: EdgeInsets.symmetric(horizontal: 5.0),
+                        margin: const EdgeInsets.symmetric(horizontal: 5.0),
                         decoration: BoxDecoration(
-                            color: Colors.amber,
-                            image: DecorationImage(
-                                image: Image.asset("$i").image,
-                                fit: BoxFit.cover)),
-                        child: Text(
-                          'text $i',
-                          style: TextStyle(fontSize: 16.0),
+                          color: Colors.amber,
+                          image: DecorationImage(
+                            image: Image.asset(i).image,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        child: ClipRRect(
+                          child: BackdropFilter(
+                            filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                            child: Container(
+                              alignment: Alignment.center,
+                              color: Colors.grey.withOpacity(0.1),
+                              child: Image.asset(i, fit: BoxFit.contain),
+                            ),
+                          ),
                         ),
                       );
                     },
