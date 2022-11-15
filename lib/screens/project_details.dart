@@ -49,8 +49,23 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
           // height: size.height * 0.8,
           child: Column(
             children: [
+              Text(widget.project.projectTitle, style: kH3TextStyle),
+              const SizedBox(height: 10.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                child: Text(widget.project.projectDescription,
+                    style: kH4TextStyle),
+              ),
               CarouselSlider(
-                options: CarouselOptions(height: 550.0),
+                options: CarouselOptions(
+                  height: size.height * 0.85,
+                  autoPlay: true,
+                  autoPlayInterval: const Duration(seconds: 6),
+                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enlargeCenterPage: true,
+                  scrollDirection: Axis.horizontal,
+                ),
                 items: widget.project.projectImagesUrl.map((i) {
                   return Builder(
                     builder: (BuildContext context) {
@@ -79,19 +94,33 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
                   );
                 }).toList(),
               ),
-              Container(
-                height: 300.0,
-                margin: const EdgeInsets.only(
-                    top: 55.0, bottom: 55.0, right: 70.0, left: 40.0),
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(30.0),
+              const SizedBox(height: 20.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 5.0, vertical: 20.0),
+                      child: ElevatedButton.icon(
+                        onPressed: () {},
+                        label: const Text("Go to Project"),
+                        icon: const Icon(Icons.arrow_forward, size: 26.0),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white.withOpacity(0.2),
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(20.0),
+                            ),
+                          ),
+                          fixedSize: Size(size.width, 60.0),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 12.0, horizontal: 20.0),
+                        ),
+                      ),
+                    ),
                   ),
-                  image: DecorationImage(
-                    image: AssetImage(widget.project.displayImageUrl),
-                    fit: BoxFit.cover,
-                  ),
-                ),
+                ],
               ),
             ],
           ),
