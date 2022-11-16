@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "194041596044",
+    "project_id": "dyce-portfolio",
+    "storage_bucket": "dyce-portfolio.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:194041596044:android:555820774ffec61458d3a9",
+        "android_client_info": {
+          "package_name": "com.example.dyce_portfolio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "194041596044-tqev4fu1mmbm9gdmiav48lfdhlvijgkc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3dP-2ltgMLlKkqH03T4GubpL8qPVaAR8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "194041596044-tqev4fu1mmbm9gdmiav48lfdhlvijgkc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

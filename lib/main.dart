@@ -1,10 +1,13 @@
 import 'package:dyce_portfolio/screens/homescreen.dart';
 import 'package:dyce_portfolio/utils/constants.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
+import 'firebase_options.dart';
 import 'utils/routes.dart';
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 

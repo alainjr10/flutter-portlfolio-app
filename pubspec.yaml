@@ -40,6 +40,7 @@ dependencies:
   font_awesome_flutter: ^10.2.1
   url_launcher: ^6.1.6
   carousel_slider: ^4.1.1
+  firebase_core: ^2.2.0
 
 dev_dependencies:
   flutter_test:
