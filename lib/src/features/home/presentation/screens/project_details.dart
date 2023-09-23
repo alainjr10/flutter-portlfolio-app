@@ -8,7 +8,9 @@ import '../../../../../app/utils/constants.dart';
 
 class ProjectDetailsScreen extends StatefulWidget {
   static const projectDetailsScreenId = "/project_details";
-  const ProjectDetailsScreen({super.key, required this.project});
+  const ProjectDetailsScreen(
+      {super.key, required this.project, required this.projectName});
+  final String projectName;
   final ProjectSpecs project;
 
   @override

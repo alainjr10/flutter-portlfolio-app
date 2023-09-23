@@ -63,6 +63,7 @@ class AboutMeCard extends StatelessWidget {
               style: kH4TextStyle.copyWith(
                 height: 1.5,
               ),
+              textAlign: TextAlign.justify,
             ),
           ),
         ],

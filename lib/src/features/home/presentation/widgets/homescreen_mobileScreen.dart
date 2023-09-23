@@ -1,15 +1,19 @@
+import 'package:dyce_portfolio/src/features/home/presentation/view_model/projects_providers.dart';
 import 'package:dyce_portfolio/src/features/home/presentation/widgets/about_me_card.dart';
+import 'package:dyce_portfolio/src/features/home/presentation/widgets/scroll_to_place_btn.dart';
 import 'package:dyce_portfolio/src/features/home/presentation/widgets/skills_card.dart';
 import 'package:dyce_portfolio/src/features/home/presentation/widgets/social_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../data/models/project_specs.dart';
 import '../../data/models/skills_model.dart';
 import '../../../../../app/utils/constants.dart';
 import 'single_project_card.dart';
 
-class HomeScreenMobile extends StatelessWidget {
+class HomeScreenMobile extends ConsumerWidget {
   const HomeScreenMobile({
     Key? key,
     required this.scrollToHomeKey,
@@ -34,7 +38,8 @@ class HomeScreenMobile extends StatelessWidget {
   final List<ProjectSpecs> projects;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final projectsProvider = ref.watch(projectsRepoProvider);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -53,62 +58,32 @@ class HomeScreenMobile extends StatelessWidget {
             DrawerHeader(
               child: Container(),
             ),
-            TextButton(
-              onPressed: () {
-                Scrollable.ensureVisible(
-                  scrollToHomeKey.currentContext!,
-                  duration: const Duration(seconds: 1),
-                  curve: Curves.easeInOut,
-                );
-                Navigator.pop(context);
-              },
-              style: kHeadingTextButtonStyle,
-              child: const Text("Home"),
+            buildScrollableButton(
+              context,
+              "Home",
+              scrollToHomeKey,
             ),
-            const SizedBox(width: 8.0),
-            TextButton(
-              onPressed: () {
-                Scrollable.ensureVisible(
-                  scrollToAboutKey.currentContext!,
-                  duration: const Duration(seconds: 1),
-                  curve: Curves.easeInOut,
-                );
-                Navigator.pop(context);
-              },
-              style: kHeadingTextButtonStyle,
-              child: const Text("About"),
+            buildScrollableButton(
+              context,
+              "About",
+              scrollToAboutKey,
             ),
-            const SizedBox(width: 8.0),
-            TextButton(
-              onPressed: () {
-                Scrollable.ensureVisible(
-                  scrollToSkillsKey.currentContext!,
-                  duration: const Duration(seconds: 1),
-                  curve: Curves.easeInOut,
-                );
-                Navigator.pop(context);
-              },
-              style: kHeadingTextButtonStyle,
-              child: const Text("Skills"),
+            buildScrollableButton(
+              context,
+              "Skills",
+              scrollToSkillsKey,
             ),
-            const SizedBox(width: 8.0),
-            TextButton(
-              onPressed: () {
-                Scrollable.ensureVisible(
-                  scrollToProjectsKey.currentContext!,
-                  duration: const Duration(seconds: 1),
-                  curve: Curves.easeInOut,
-                );
-                Navigator.pop(context);
-              },
-              style: kHeadingTextButtonStyle,
-              child: const Text("Projects"),
+            buildScrollableButton(
+              context,
+              "Projects",
+              scrollToProjectsKey,
             ),
             const SizedBox(width: 100.0),
           ],
         ),
       ),
       body: SingleChildScrollView(
+        primary: true,
         child: Column(
           children: [
             Container(
@@ -140,7 +115,7 @@ class HomeScreenMobile extends StatelessWidget {
                       Container(
                         constraints: const BoxConstraints(maxWidth: 750.0),
                         child: Text(
-                          "Software Engineer, Software Developer, Freelancer. \nMobile App Developer, building reliable and scalable cross platform mobile apps with Flutter SDK. \nBackend web developer",
+                          projectsProvider.briefDescription(),
                           style: GoogleFonts.roboto(
                             textStyle: textTheme.titleLarge?.copyWith(
                               color: Colors.white,
@@ -149,6 +124,7 @@ class HomeScreenMobile extends StatelessWidget {
                               fontSize: 18.0,
                             ),
                           ),
+                          textAlign: TextAlign.justify,
                         ),
                       ),
                       const SizedBox(
@@ -194,7 +170,6 @@ class HomeScreenMobile extends StatelessWidget {
                     height: 15.0,
                   ),
                   ListView.separated(
-                    primary: true,
                     shrinkWrap: true,
                     itemCount: projects.length,
                     separatorBuilder: (context, index) {
@@ -207,40 +182,36 @@ class HomeScreenMobile extends StatelessWidget {
                         projectDescription: projects[index].projectDescription,
                         techStackUsed: projects[index].techStackUsed,
                         displayImageUrl: projects[index].displayImageUrl,
-                        onTapped: () {},
+                        onTapped: () {
+                          context.push(
+                            '/projects/project_details/${projects[index].projectTitle}',
+                            extra: projects[index],
+                          );
+                        },
                       );
                     },
                   ),
-                  const SizedBox(
-                    height: 30.0,
-                  ),
-                  ListView.separated(
-                    primary: true,
-                    shrinkWrap: true,
-                    itemCount: projects.length,
-                    separatorBuilder: (context, index) {
-                      return const SizedBox(height: 30.0);
-                    },
-                    itemBuilder: (context, index) {
-                      // return SmallerProjectsCard(
-                      //   textTheme: textTheme,
-                      //   projectTitle: projects[index].projectTitle,
-                      //   projectDescription:
-                      //       projects[index].projectDescription,
-                      //   displayImageUrl: projects[index].displayImageUrl,
-                      //   onTapped: projects[index].onTapped,
-                      //   techStackUsed: projects[index].techStackUsed,
-                      // );
-                      return SingleProjectCardMobile(
-                        size: size,
-                        projectTitle: projects[index].projectTitle,
-                        projectDescription: projects[index].projectDescription,
-                        techStackUsed: projects[index].techStackUsed,
-                        displayImageUrl: projects[index].displayImageUrl,
-                        onTapped: () {},
-                      );
-                    },
-                  ),
+                  // const SizedBox(
+                  //   height: 30.0,
+                  // ),
+                  // ListView.separated(
+                  //   // primary: true,
+                  //   shrinkWrap: true,
+                  //   itemCount: projects.length,
+                  //   separatorBuilder: (context, index) {
+                  //     return const SizedBox(height: 30.0);
+                  //   },
+                  //   itemBuilder: (context, index) {
+                  //     return SingleProjectCardMobile(
+                  //       size: size,
+                  //       projectTitle: projects[index].projectTitle,
+                  //       projectDescription: projects[index].projectDescription,
+                  //       techStackUsed: projects[index].techStackUsed,
+                  //       displayImageUrl: projects[index].displayImageUrl,
+                  //       onTapped: () {},
+                  //     );
+                  //   },
+                  // ),
                 ],
               ),
             ),

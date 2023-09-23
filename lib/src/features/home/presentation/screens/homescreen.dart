@@ -3,7 +3,6 @@ import 'package:dyce_portfolio/src/features/home/presentation/view_model/project
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../view_model/projects.dart';
 import '../widgets/homescreen_largeScreen.dart';
 import '../widgets/homescreen_mobileScreen.dart';
 
@@ -30,7 +29,8 @@ class HomeScreen extends ConsumerWidget {
             textTheme: textTheme,
             aboutMeText: projectsProvider.getAboutMeText(),
             skills: projectsProvider.getSkills(),
-            projects: projects)
+            projects: projectsProvider.getProjects(),
+          )
         : HomeScreenLargeScreen(
             scrollToHomeKey: scrollToHomeKey,
             scrollToAboutKey: scrollToAboutKey,
@@ -40,6 +40,7 @@ class HomeScreen extends ConsumerWidget {
             textTheme: textTheme,
             aboutMeText: projectsProvider.getAboutMeText(),
             skills: projectsProvider.getSkills(),
-            projects: projects);
+            projects: projectsProvider.getProjects(),
+          );
   }
 }

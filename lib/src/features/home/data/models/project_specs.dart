@@ -6,6 +6,7 @@ class ProjectSpecs {
   final Function() onTapped;
   List<String> projectImagesUrl;
   String projectStatus;
+  String projectWebUrl;
 
   ProjectSpecs({
     required this.projectTitle,
@@ -15,5 +16,6 @@ class ProjectSpecs {
     required this.onTapped,
     this.projectImagesUrl = const [],
     this.projectStatus = "inProgress",
+    this.projectWebUrl = "",
   });
 }
