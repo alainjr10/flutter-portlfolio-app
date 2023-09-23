@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
-import '../utils/constants.dart';
+import '../../../../../app/utils/constants.dart';
 
 class SingleProjectCard extends StatefulWidget {
   const SingleProjectCard({

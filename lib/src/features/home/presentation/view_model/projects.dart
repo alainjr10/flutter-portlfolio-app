@@ -1,4 +1,4 @@
-import '../models/project_specs.dart';
+import '../../data/models/project_specs.dart';
 
 List<ProjectSpecs> projects = [
   ProjectSpecs(

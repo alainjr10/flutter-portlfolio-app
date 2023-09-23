@@ -1,11 +1,13 @@
+import 'package:dyce_portfolio/src/features/home/presentation/widgets/about_me_card.dart';
+import 'package:dyce_portfolio/src/features/home/presentation/widgets/skills_card.dart';
+import 'package:dyce_portfolio/src/features/home/presentation/widgets/social_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../models/project_specs.dart';
-import '../models/skills_model.dart';
-import '../screens/homescreen.dart';
+import '../../data/models/project_specs.dart';
+import '../../data/models/skills_model.dart';
 import '../screens/project_details.dart';
-import '../utils/constants.dart';
+import '../../../../../app/utils/constants.dart';
 import 'single_project_card.dart';
 import 'small_projects_card.dart';
 
@@ -146,7 +148,7 @@ class HomeScreenLargeScreen extends StatelessWidget {
                       Text(
                         "Njokom Alain",
                         style: GoogleFonts.roboto(
-                          textStyle: textTheme.headline1?.copyWith(
+                          textStyle: textTheme.displayLarge?.copyWith(
                             color: Colors.white,
                             fontWeight: FontWeight.w900,
                             fontSize: 72.0,
@@ -198,7 +200,7 @@ class HomeScreenLargeScreen extends StatelessWidget {
                   Text(
                     "Projects",
                     style: GoogleFonts.roboto(
-                      textStyle: textTheme.headline4?.copyWith(
+                      textStyle: textTheme.headlineMedium?.copyWith(
                         decoration: TextDecoration.underline,
                         decorationThickness: 1.6,
                         fontWeight: FontWeight.w600,

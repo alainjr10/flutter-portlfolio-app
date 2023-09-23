@@ -1,10 +1,10 @@
 import 'dart:ui';
 
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dyce_portfolio/models/project_specs.dart';
+import 'package:dyce_portfolio/src/features/home/data/models/project_specs.dart';
 import 'package:flutter/material.dart';
 
-import '../utils/constants.dart';
+import '../../../../../app/utils/constants.dart';
 
 class ProjectDetailsScreen extends StatefulWidget {
   static const projectDetailsScreenId = "/project_details";

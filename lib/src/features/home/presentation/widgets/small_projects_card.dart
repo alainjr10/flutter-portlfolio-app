@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../utils/constants.dart';
+import '../../../../../app/utils/constants.dart';
 
 class SmallerProjectsCard extends StatefulWidget {
   const SmallerProjectsCard({
@@ -111,8 +111,8 @@ class _SmallerProjectsCardState extends State<SmallerProjectsCard> {
               padding:
                   const EdgeInsets.symmetric(vertical: 12.0, horizontal: 20.0),
             ),
-            child: Row(
-              children: const [
+            child: const Row(
+              children: [
                 Text("See Project"),
                 SizedBox(width: 8.0),
                 Icon(Icons.arrow_forward, size: 20.0),
