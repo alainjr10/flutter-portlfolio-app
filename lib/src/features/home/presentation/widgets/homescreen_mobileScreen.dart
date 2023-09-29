@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../data/models/project_specs.dart';
 import '../../data/models/skills_model.dart';
@@ -42,10 +43,16 @@ class HomeScreenMobile extends ConsumerWidget {
     final projectsProvider = ref.watch(projectsRepoProvider);
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'NA',
-          style: kH3TextStyle.copyWith(fontSize: 40.0),
+        title: Lottie.asset(
+          'assets/Lottie Lego.json',
+          height: 75.0,
+          width: 75.0,
+          fit: BoxFit.cover,
         ),
+        // Text(
+        //   'NA',
+        //   style: kH3TextStyle.copyWith(fontSize: 40.0),
+        // ),
         surfaceTintColor: Colors.red,
         // backgroundColor: const Color.fromARGB(255, 24, 1, 44),
         backgroundColor: const Color(0xFF060706),
@@ -85,6 +92,7 @@ class HomeScreenMobile extends ConsumerWidget {
       body: SingleChildScrollView(
         primary: true,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               key: scrollToHomeKey,
@@ -172,6 +180,7 @@ class HomeScreenMobile extends ConsumerWidget {
                   ListView.separated(
                     shrinkWrap: true,
                     itemCount: projects.length,
+                    physics: const NeverScrollableScrollPhysics(),
                     separatorBuilder: (context, index) {
                       return const SizedBox(height: 30.0);
                     },

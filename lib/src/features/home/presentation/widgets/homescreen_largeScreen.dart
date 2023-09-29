@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../data/models/project_specs.dart';
 import '../../data/models/skills_model.dart';
-import '../../../../../app/utils/constants.dart';
 import 'single_project_card.dart';
 import 'small_projects_card.dart';
 
@@ -46,10 +46,16 @@ class HomeScreenLargeScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'NA',
-          style: kH3TextStyle.copyWith(fontSize: 40.0),
+        title: Lottie.asset(
+          'assets/Lottie Lego.json',
+          height: 100.0,
+          width: 100.0,
+          fit: BoxFit.cover,
         ),
+        //  Text(
+        //   'NA',
+        //   style: kH3TextStyle.copyWith(fontSize: 40.0),
+        // ),
         surfaceTintColor: Colors.red,
         // backgroundColor: const Color.fromARGB(255, 24, 1, 44),
         backgroundColor: const Color(0xFF060706),
@@ -168,9 +174,9 @@ class HomeScreenLargeScreen extends ConsumerWidget {
                     height: 25.0,
                   ),
                   ListView.separated(
-                    primary: true,
                     shrinkWrap: true,
                     // itemCount: projects.length,
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: firstFiveProjects.length,
                     separatorBuilder: (context, index) {
                       return const SizedBox(height: 40.0);
@@ -208,7 +214,6 @@ class HomeScreenLargeScreen extends ConsumerWidget {
                         mainAxisSpacing: 20.0,
                         childAspectRatio: size.width < 1015 ? 3 / 4 : 4 / 4,
                       ),
-                      primary: true,
                       shrinkWrap: true,
                       // itemCount: projects.length,
                       itemCount: remainingProjects.length,

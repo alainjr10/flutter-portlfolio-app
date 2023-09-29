@@ -40,14 +40,20 @@ class SkillsCard extends StatelessWidget {
             height: 10.0,
           ),
           Container(
-            margin: size.width > kMobileScreenSize
-                ? EdgeInsets.symmetric(
-                    horizontal: size.width / 10, vertical: 20.0)
-                : EdgeInsets.symmetric(
-                    horizontal: size.width / 10, vertical: 12.0),
-            padding: size.width > kMobileScreenSize
-                ? const EdgeInsets.symmetric(vertical: 25.0, horizontal: 40.0)
-                : const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+            margin: size.width < kSmallerMobileScreenSize
+                ? const EdgeInsets.symmetric(horizontal: 0, vertical: 20.0)
+                : size.width < kMobileScreenSize
+                    ? EdgeInsets.symmetric(
+                        horizontal: size.width / 10, vertical: 12.0)
+                    : EdgeInsets.symmetric(
+                        horizontal: size.width / 10, vertical: 20.0),
+            padding: size.width < kSmallerMobileScreenSize
+                ? const EdgeInsets.symmetric(vertical: 16.0, horizontal: 12.0)
+                : size.width < kMobileScreenSize
+                    ? const EdgeInsets.symmetric(
+                        vertical: 20.0, horizontal: 20.0)
+                    : const EdgeInsets.symmetric(
+                        vertical: 25.0, horizontal: 40.0),
             width: size.width,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(

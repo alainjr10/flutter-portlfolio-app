@@ -203,10 +203,15 @@ class _SingleProjectCardMobileState extends State<SingleProjectCardMobile> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = widget.size;
     return Container(
-      margin: EdgeInsets.symmetric(
-          horizontal: widget.size.width / 10, vertical: 15.0),
-      padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 36.0),
+      margin: size.width < kSmallerMobileScreenSize
+          ? const EdgeInsets.all(0)
+          : EdgeInsets.symmetric(
+              horizontal: widget.size.width / 12, vertical: 16.0),
+      padding: size.width < kSmallerMobileScreenSize
+          ? const EdgeInsets.symmetric(vertical: 20.0, horizontal: 16.0)
+          : const EdgeInsets.symmetric(vertical: 20.0, horizontal: 32.0),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(
           Radius.circular(30.0),
@@ -224,7 +229,10 @@ class _SingleProjectCardMobileState extends State<SingleProjectCardMobile> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(widget.projectTitle, style: kH3TextStyle),
+          Text(widget.projectTitle,
+              style: size.width < kSmallerMobileScreenSize
+                  ? kH3TextStyle.copyWith(fontSize: 24.0)
+                  : kH3TextStyle),
           const SizedBox(height: 10.0),
           Row(
             children: [

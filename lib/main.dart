@@ -26,8 +26,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: kPrimaryColor,
         primaryColor: kOnPrimaryColor,
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: kPrimaryColorShades)
-            .copyWith(background: kPrimaryColor),
+        colorScheme:
+            ColorScheme.fromSwatch(primarySwatch: kPrimaryColorShades).copyWith(
+          background: kPrimaryColor,
+          // brightness: Brightness.dark,
+        ),
       ),
       debugShowCheckedModeBanner: false,
     );

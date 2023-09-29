@@ -35,6 +35,7 @@ ButtonStyle kHeadingTextButtonStyle = TextButton.styleFrom(
 );
 
 const double kMobileScreenSize = 900.0;
+const double kSmallerMobileScreenSize = 620.0;
 
 const MaterialColor kPrimaryColorShades = MaterialColor(
   0xFF110120,
