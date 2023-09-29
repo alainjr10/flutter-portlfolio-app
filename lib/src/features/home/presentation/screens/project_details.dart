@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dyce_portfolio/src/features/home/data/models/project_specs.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../app/utils/constants.dart';
 
@@ -18,6 +19,15 @@ class ProjectDetailsScreen extends StatefulWidget {
 }
 
 class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
+  Future<void> _launchInBrowser(Uri url) async {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.platformDefault,
+    )) {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -105,7 +115,13 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 5.0, vertical: 20.0),
                       child: ElevatedButton.icon(
-                        onPressed: () {},
+                        onPressed: widget.project.projectWebUrl.isEmpty
+                            ? () {}
+                            : () {
+                                _launchInBrowser(
+                                  Uri.parse(widget.project.projectWebUrl),
+                                );
+                              },
                         label: const Text("Go to Project"),
                         icon: const Icon(Icons.arrow_forward, size: 26.0),
                         style: ElevatedButton.styleFrom(

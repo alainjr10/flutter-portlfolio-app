@@ -41,6 +41,9 @@ class HomeScreenLargeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final projectsProvider = ref.watch(projectsRepoProvider);
+    final List<ProjectSpecs> firstFiveProjects = projects.sublist(0, 4);
+    final List<ProjectSpecs> remainingProjects = projects.sublist(4);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -167,21 +170,24 @@ class HomeScreenLargeScreen extends ConsumerWidget {
                   ListView.separated(
                     primary: true,
                     shrinkWrap: true,
-                    itemCount: projects.length,
+                    // itemCount: projects.length,
+                    itemCount: firstFiveProjects.length,
                     separatorBuilder: (context, index) {
                       return const SizedBox(height: 40.0);
                     },
                     itemBuilder: (context, index) {
                       return SingleProjectCard(
                         size: size,
-                        projectTitle: projects[index].projectTitle,
-                        projectDescription: projects[index].projectDescription,
-                        techStackUsed: projects[index].techStackUsed,
-                        displayImageUrl: projects[index].displayImageUrl,
+                        projectTitle: firstFiveProjects[index].projectTitle,
+                        projectDescription:
+                            firstFiveProjects[index].projectDescription,
+                        techStackUsed: firstFiveProjects[index].techStackUsed,
+                        displayImageUrl:
+                            firstFiveProjects[index].displayImageUrl,
                         onTapped: () {
                           context.push(
-                            '/projects/project_details/${projects[index].projectTitle}',
-                            extra: projects[index],
+                            '/projects/project_details/${firstFiveProjects[index].projectTitle}',
+                            extra: firstFiveProjects[index],
                           );
                         },
                       );
@@ -204,16 +210,24 @@ class HomeScreenLargeScreen extends ConsumerWidget {
                       ),
                       primary: true,
                       shrinkWrap: true,
-                      itemCount: projects.length,
+                      // itemCount: projects.length,
+                      itemCount: remainingProjects.length,
                       itemBuilder: (context, index) {
                         return SmallerProjectsCard(
                           textTheme: textTheme,
-                          projectTitle: projects[index].projectTitle,
+                          projectTitle: remainingProjects[index].projectTitle,
                           projectDescription:
-                              projects[index].projectDescription,
-                          displayImageUrl: projects[index].displayImageUrl,
-                          onTapped: projects[index].onTapped,
-                          techStackUsed: projects[index].techStackUsed,
+                              remainingProjects[index].projectDescription,
+                          displayImageUrl:
+                              remainingProjects[index].displayImageUrl,
+                          onTapped: () {
+                            context.push(
+                              '/projects/project_details/${remainingProjects[index].projectTitle}',
+                              extra: remainingProjects[index],
+                            );
+                          },
+                          // onTapped: remainingProjects[index].onTapped,
+                          techStackUsed: remainingProjects[index].techStackUsed,
                         );
                       },
                     ),
