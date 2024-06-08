@@ -4,10 +4,10 @@ import 'package:dyce_portfolio/src/features/home/data/models/skills_model.dart';
 class ProjectsLocalDataSrc {
   String aboutMeText() =>
       "I'm Njokom Alain Junior, a software developer from Cameroon. As a software developer, I have a speciality as a full stack mobile app developer, "
-      "backend developer, and an AI enthusiast. I have a strong passion for problem solving, using suitable algorithms and data strutures. I love building beautiful looking and highly peformant mobile applications using the Flutter SDK by google and implementing functionality, mostly with Firebase, and Rest APIs. I also enjoy introducing the younger generation into tech and being a teacher and mentor to them. \nAsides from that, I have a decent knowledge of Native android app development with Kotlin, and I'm currently learning and improving my skillset in that area. Along with that, I'm currently learning backend development with NodeJS. \nI'm a Computer Engineering Masters degreee holder from the University of Bamenda, (National Higher Polytechnic Institute Bamenda).  I'm always looking to work in a team, and collaborate with other brilliant developers on exciting problems, which provide a major solution through coding, as well as learning as much as I possibly can.";
+      "backend developer, and an AI enthusiast. I have a strong passion for problem solving, using suitable algorithms and data strutures. I love building beautiful looking and highly peformant mobile applications using the Flutter SDK by google and implementing functionality, mostly with Firebase, and Rest APIs. I also enjoy introducing the younger generation into tech and being a teacher and mentor to them. \nMy expertise extends outside of mobile app development, with a strong foundation in Golang, I've implemented several app and web backend systems with Go and with the Google Cloud ecosystem in mostly. I also gained valuable experience when preparing for Summer of Bitcoin internship by writing blockchain solutions in Go. \nAsides from that, I have a decent knowledge of Native android app development with Kotlin, and I'm currently improving my skillset in that area. \nI've worked (not extensively) on projects where I had to write solutions in all of the languages/frameworks in the skills section below. This is often relatively easy to pickup a new language and get going as I have a very solid foundation in the core principles of Programming and Software Engineering as a whole \nI'm a Computer Engineering Masters degreee holder from the University of Bamenda, (National Higher Polytechnic Institute Bamenda).  I'm always looking to work in a team, and collaborate with other brilliant developers on exciting problems, which provide a major solution through coding, as well as learning as much as I possibly can.";
 
   String briefDescription() =>
-      "Software Engineer, Software Developer, Freelancer. \nMobile App Developer, building reliable and scalable cross platform mobile apps with Flutter SDK Building highly performant native android apps with Kotlin and jetpack compose. \nBackend developer";
+      "Software Engineer, Freelancer. Open source enthusiast \nMobile App Developer, building reliable and scalable cross platform mobile apps with Flutter SDK Building highly performant native android apps with Kotlin and jetpack compose. \nBackend developer (Golang)";
 
   List<SkillsModel> returnSkills() => skills;
 
@@ -21,6 +21,10 @@ class ProjectsLocalDataSrc {
     SkillsModel(
       name: "Dart",
       logo: "assets/icons/icons8-dart-100.png",
+    ),
+    SkillsModel(
+      name: "Golang",
+      logo: "assets/icons/Go-Logo_Blue.png",
     ),
     SkillsModel(
       name: "Firebase",
@@ -105,6 +109,7 @@ class ProjectsLocalDataSrc {
       techStackUsed: [
         "Flutter",
         "Firebase Suite",
+        "Golang",
         "Typescript",
         "Google Cloud",
         "Rest APIs",

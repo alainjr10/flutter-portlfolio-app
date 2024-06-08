@@ -1,4 +1,4 @@
-import 'dart:developer';
+// import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,14 +7,14 @@ import '../../../../../app/utils/constants.dart';
 
 class SmallerProjectsCard extends StatefulWidget {
   const SmallerProjectsCard({
-    Key? key,
+    super.key,
     required this.textTheme,
     required this.projectTitle,
     required this.projectDescription,
     required this.techStackUsed,
     required this.displayImageUrl,
     required this.onTapped,
-  }) : super(key: key);
+  });
 
   final TextTheme textTheme;
   final String projectTitle;
@@ -43,7 +43,7 @@ class _SmallerProjectsCardState extends State<SmallerProjectsCard> {
   void initState() {
     super.initState();
     projectListToString();
-    log(projectListToString());
+    // log(projectListToString());
   }
 
   @override

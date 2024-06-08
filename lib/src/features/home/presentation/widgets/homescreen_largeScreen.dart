@@ -16,7 +16,7 @@ import 'small_projects_card.dart';
 
 class HomeScreenLargeScreen extends ConsumerWidget {
   const HomeScreenLargeScreen({
-    Key? key,
+    super.key,
     required this.scrollToHomeKey,
     required this.scrollToAboutKey,
     required this.scrollToSkillsKey,
@@ -26,7 +26,7 @@ class HomeScreenLargeScreen extends ConsumerWidget {
     required this.aboutMeText,
     required this.skills,
     required this.projects,
-  }) : super(key: key);
+  });
 
   final GlobalKey<State<StatefulWidget>> scrollToHomeKey;
   final GlobalKey<State<StatefulWidget>> scrollToAboutKey;
@@ -173,32 +173,60 @@ class HomeScreenLargeScreen extends ConsumerWidget {
                   const SizedBox(
                     height: 25.0,
                   ),
-                  ListView.separated(
-                    shrinkWrap: true,
-                    // itemCount: projects.length,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: firstFiveProjects.length,
-                    separatorBuilder: (context, index) {
-                      return const SizedBox(height: 40.0);
-                    },
-                    itemBuilder: (context, index) {
-                      return SingleProjectCard(
-                        size: size,
-                        projectTitle: firstFiveProjects[index].projectTitle,
-                        projectDescription:
-                            firstFiveProjects[index].projectDescription,
-                        techStackUsed: firstFiveProjects[index].techStackUsed,
-                        displayImageUrl:
-                            firstFiveProjects[index].displayImageUrl,
-                        onTapped: () {
-                          context.push(
-                            '/projects/project_details/${firstFiveProjects[index].projectTitle}',
-                            extra: firstFiveProjects[index],
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ...firstFiveProjects.map((project) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SingleProjectCard(
+                                size: size,
+                                projectTitle: project.projectTitle,
+                                projectDescription: project.projectDescription,
+                                techStackUsed: project.techStackUsed,
+                                displayImageUrl: project.displayImageUrl,
+                                onTapped: () {
+                                  context.push(
+                                    '/projects/project_details/${project.projectTitle}',
+                                    extra: project,
+                                  );
+                                },
+                              ),
+                              const SizedBox(height: 40.0),
+                            ],
                           );
-                        },
-                      );
-                    },
+                        })
+                      ],
+                    ),
                   ),
+                  // ListView.separated(
+                  //   shrinkWrap: true,
+                  //   // itemCount: projects.length,
+                  //   physics: const NeverScrollableScrollPhysics(),
+                  //   itemCount: firstFiveProjects.length,
+                  //   separatorBuilder: (context, index) {
+                  //     return const SizedBox(height: 40.0);
+                  //   },
+                  //   itemBuilder: (context, index) {
+                  //     return SingleProjectCard(
+                  //       size: size,
+                  //       projectTitle: firstFiveProjects[index].projectTitle,
+                  //       projectDescription:
+                  //           firstFiveProjects[index].projectDescription,
+                  //       techStackUsed: firstFiveProjects[index].techStackUsed,
+                  //       displayImageUrl:
+                  //           firstFiveProjects[index].displayImageUrl,
+                  //       onTapped: () {
+                  //         context.push(
+                  //           '/projects/project_details/${firstFiveProjects[index].projectTitle}',
+                  //           extra: firstFiveProjects[index],
+                  //         );
+                  //       },
+                  //     );
+                  //   },
+                  // ),
                   const SizedBox(
                     height: 40.0,
                   ),

@@ -1,4 +1,4 @@
-import 'dart:developer';
+// import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
@@ -42,7 +42,7 @@ class _SingleProjectCardState extends State<SingleProjectCard> {
   void initState() {
     super.initState();
     projectListToString();
-    log(projectListToString());
+    // log(projectListToString());
   }
 
   @override
@@ -198,7 +198,7 @@ class _SingleProjectCardMobileState extends State<SingleProjectCardMobile> {
   void initState() {
     super.initState();
     projectListToString();
-    log(projectListToString());
+    // log(projectListToString());
   }
 
   @override
